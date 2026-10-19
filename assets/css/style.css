@@ -156,7 +156,7 @@ html.lenis [id] { scroll-margin-top: 0; }
   gap: var(--space-4);
   min-height: 64px;
   padding-block: var(--space-2);
-  transition: min-height 0.2s ease;
+  transition: none;
 }
 .marca {
   display: flex;
@@ -650,7 +650,7 @@ html.lenis [id] { scroll-margin-top: 0; }
 .pergunta[open] summary .icone { transform: rotate(45deg); }
 .pergunta summary:hover span { color: var(--accent); }
 .pergunta__resposta p { padding-bottom: var(--space-5); max-width: 36em; color: var(--apoio-claro); }
-.acordeao-animado .pergunta__resposta { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+.acordeao-animado .pergunta__resposta { display: grid; grid-template-rows: 0fr; transition: none; }
 .acordeao-animado .pergunta__resposta > div { overflow: hidden; }
 .acordeao-animado .pergunta[data-aberto] .pergunta__resposta { grid-template-rows: 1fr; }
 .acordeao-animado .pergunta:not([data-aberto]) summary .icone { transform: none; }
@@ -777,4 +777,10 @@ html.lenis [id] { scroll-margin-top: 0; }
   }
   .sobre__foto,
   .comecar__foto { margin-inline: 0; }
+}
+
+
+/* Regra do Armin, 19/10/2026 (§0 "Rolagem leve no celular"): sem vidro desfocado no celular; fundo quase opaco. Aplicado por aplicar-carregamento.mjs. */
+@media (max-width: 899px) {
+  .cabecalho[data-rolado] { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(5, 8, 12, 0.96); }
 }
